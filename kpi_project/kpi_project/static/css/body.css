@@ -1,0 +1,65 @@
+.bodydiv{
+
+	
+	width: 40%;
+	padding: 0 px;
+	height: 80%;
+	text-align: left;
+	margin: 1% ;
+	align-content:center
+	
+}
+
+.bodydesign {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: gray;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+.input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.input:focus, .input:focus {
+  outline: none;
+}
+ div {
+  padding: 5px;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: #004466;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size:15px;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+.footer {
+   position: relative;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #f1f1f1;
+   color: black;
+   text-align: center;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <!--css-->
+  <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+  <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-2.2.1.min.css" />
+  <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.2.1.min.css" />
+  <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-tables-2.2.1.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js" crossorigin="anonymous"></script>
+
+  <title>Chart</title>
+</head>
+
+<body>
+  
+
+  {{script | safe}}
+  <script>
+    datax = {{ data | safe }}
+    Bokeh.embed.embed_item(datax, "plot")
+  </script>
+  <div>
+   
+  </div>
+
+  <ul>
+    <li><a class="active" href="#">Home</a></li>
+    <li><a href="candidate">Registration</a></li>
+    <li><a href="{% url 'kpi:upload' %}">Upload Excel</a></li>
+    <li><a href="{% url 'kpi:visualization'%}" class="active">Show Visualization</a></li>
+  </ul>
+  
+  <!--main body-->
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+          {{error_message}}
+        </div>
+        {% endif %}
+        <form action="{% url 'kpi:visualization' %}" method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3 text-left table">
+            {% for field in form %}
+            <div class="form-group col-sm-6">
+              <div class="text-right col-sm-4">{{ field.label_tag }} </div>
+              <div class="text-left col-sm-2"> {{ field }}</div>
+              <div class="text-left col-sm-4">{{ field.errors }}</div>
+              {% if field.help_text %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Get Report</button>
+          </div>
+         
+        </form>
+        <section class="">
+          <div class="bk-root" id="plot"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+</body>
+
+
+</html>

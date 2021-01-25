@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}">
+ <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+
+</head>
+<body>
+
+<div class="header">
+  
+  <!-- <div class="header-right">
+    <a href="home">Home</a>
+    <a href="#about">About</a>
+  </div> -->
+</div>
+<div align = "center" >
+	<div class ="bodydiv" >
+	  <div class="bodydesign">
+            <form method="POST">
+              {% csrf_token %}
+                <div class="container">
+                  <h1 class='hedu'> Employee Registration Form</h1>
+                  <hr>
+                  <label> Fullname </label> 
+                  <input class="input" type="text" name="fullname" placeholder= "Fullname" size="35" required /> 
+                  
+                  <div>
+                    <label for="email">Email : </label>
+                    <input class = "input" type="email" id="email" placeholder="a@domain.com" name="email_id" / required>
+                  </div>
+
+                  <div>
+                    <label> 
+                      Employee id:
+                    </label> 
+                    <input class="input" type="text" name="employee_id" placeholder="e.g: 1000 " maxlength="5" / required>
+                  </div>
+
+                  <div>
+                    <label> 
+                      Designation :
+                    </label> 
+                    <input class="input" type="text" name="designation" placeholder=" " maxlength="30" / required>
+                  </div>
+
+                  <div>
+                    <label> 
+                      Domain :
+                    </label> 
+                    <input class="input" type="text" name="domain" placeholder="eg:Java,Python" / required>
+                  </div>          
+          
+                  <div>
+                    <label> 
+                      Password :
+                    </label> 
+                    <input class="input" type="text" name="password" placeholder="a-z,A-Z,0-9,!-*" maxlength="16" / required>
+                  </div>
+
+
+                <div style="display: flex; flex-direction: row ;">
+                    <div>
+                        <input  class="registerbtn" type="submit" value="Submit">
+                    </div>
+                    <div>
+                        <input  class="registerbtn" type="reset" value="Reset">
+                    </div>
+                </div>
+	          </form>
+		
+
+	  </div>
+	</div>
+</div>
+<div class="footer">
+  <p>Footer</p>
+</div>
+</body>
+</html>
